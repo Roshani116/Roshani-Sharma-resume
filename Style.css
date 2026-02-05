@@ -1,0 +1,278 @@
+/* Flexbox + animation references:
+   https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+   https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+*/
+
+/* Apply border-box to all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Base typography and page spacing */
+html {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 1rem;
+    background-color: #f2f4f8;
+}
+
+/* Header layout */
+header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    background: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+/* Profile image styling */
+.profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #4CAF50;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+
+/* Header text */
+.header-text h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.header-text h3 {
+    font-size: 1rem;
+    margin: 0.3rem 0 0 0;
+    color: #555;
+}
+
+/* Main layout: sidebar + content */
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+/* Sidebar */
+aside {
+    flex: 1;
+    background-color: rgba(249, 249, 89, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Main content area */
+.content {
+    flex: 3;
+    background-color: rgba(38, 242, 75, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Sections and articles */
+section, article {
+    margin-bottom: 1.5rem;
+}
+
+/* Headings */
+h1 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration-thickness: 1px;
+    font-size: 3rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h2 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #333;
+    text-decoration-thickness: 1px;
+    font-size: 2rem;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+/* Contact list */
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    background-color: rgba(236, 243, 42, 1);
+    text-decoration: none;
+    color: black;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: yellow;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+thead {
+    background-color: #e0e6ed;
+}
+
+/* Form styling */
+form {
+    margin-top: 1rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8rem;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+/* Fieldset styling */
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+fieldset label {
+    font-weight: normal;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* Button animation */
+button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #43a047;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile view: max-width 480px */
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    aside, .content {
+        width: 100%;
+        flex: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .profile {
+        width: 80px;
+        height: 80px;
+    }
+}
